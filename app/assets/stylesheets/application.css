@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 13px;
+  margin: 33px;
+  line-height: 30px;
+}
+
+.title-text {
+  margin : 18px;
+}
