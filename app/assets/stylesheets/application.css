@@ -13,3 +13,25 @@ body {
 .title-text {
   margin : 18px;
 }
+
+.New_Books {
+  display: flex;
+  flex: column;
+}
+
+.show-text {
+  margin: 33px;
+}
+
+.notice {
+  margin: 30px;
+  color: lime;
+}
+
+th, td {
+  padding: 0 5px;
+}
+
+.New_Books {
+  margin: 10px auto;
+}

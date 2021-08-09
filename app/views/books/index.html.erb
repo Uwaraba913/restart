@@ -1,10 +1,44 @@
 <body>
-  <h1>New Books</h1>
-  <%= from_with model:@book, local:true do |f| %>
-  <p>Title</p>
+  <p class="notice"><%= notice %></p>
+  <h1>Books</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th><th>Body</th>
+        <th>Page</th>
+      </tr>
+    </thead>
+    <% @books.each do |book| %>
+    <tbody>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td>
+          <span class="page-link"><%= link_to "Show", book_path(book.id) %></span>
+          <span class="page-link"><%= link_to "Edit", edit_book_path(book.id) %></span>
+          <span class="page-link"><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+
+  <h1 class="New_Books">New Book</h1>
+  <% if @book.errors.any? %>
+    <div>
+      <%= @book.errors.count %> error prohibited this book from being saved:
+      <% @book.errors.full_messages.each do |message| %>
+      <ul>
+        <li class="errors-message"><%= message %></li>
+      </ul>
+    </div>
+    <% end %>
+  <% end %>
+  <%= form_with model:@book, local:true do |f| %>
+  <div class="New_book_text">Title</div>
   <%= f.text_field :title %>
-  <p>Body</p>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
+  <div class="New_book_text">Body</div>
+  <p><%= f.text_area :body %></p>
+  <p><%= f.submit 'Create Book' %></p>
   <% end %>
 </body>
